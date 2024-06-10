@@ -9,4 +9,8 @@ publish:
 	if test -d ~/public_html; then \
 	  mkdir -p $(htmldir); \
 	  cp -f --remove-destination *.py $(htmldir); \
+	  chmod +x $(htmldir)/*.py; \
 	fi
+
+clean:
+	rm $(htmldir)/*.py
