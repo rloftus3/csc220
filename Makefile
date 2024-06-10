@@ -1,5 +1,5 @@
-#SUBDIRS = madlib SVGrectangle stack mergesort letteroid doodlebug tree queue map
-SUBDIRS = map
+export REPO = csc220
+SUBDIRS = 00-lab 01-lab
 
 all: $(SUBDIRS)
 
@@ -7,8 +7,3 @@ all: $(SUBDIRS)
 
 $(SUBDIRS):
 	$(MAKE) -C $@
-
-clean:
-	for dir in $(SUBDIRS); do \
-		$(MAKE) -C $$dir clean; \
-	done
