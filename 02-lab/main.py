@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 import sys
 from random import randint
- sys.path.append('/home/staff/kurban/python')
+sys.path.append('/home/staff/kurban/python')
 import csc220
 import circle
 import color
