@@ -18,7 +18,7 @@ def rand_color():
 
 circle_list = []
 
-for count in range(0, 1):
+for count in range(0, 1000):
     p = point.Point(*rand_point())
     r = randint(2, 50)
     f = color.Color(*rand_color())
