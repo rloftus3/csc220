@@ -22,7 +22,7 @@ print(f"<p>The average length of each string is: {avg}</p>")
 
 # Sort into lexographical order...
 # Sorted in place, thus no need for variable assignment
-sorted(strings)
+strings.sort()
 itr = dataSize // 10
 
 # ...and print into 10x10 grid
