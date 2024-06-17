@@ -11,9 +11,8 @@ dataSize = len(strings)
 print(f"<p>The number of words in this input is: {dataSize}</p>")
 if dataSize < 100:
     print(f"<p>Hey, Dude, that's too small a paragraph. Try again with something longer.</p>")
-    # exit()
+    exit()
 
-print("Hello!")
 # Calculate average length of string via list comprehension
 wordLengths = [len(s) for s in strings]
 avg = mean(wordLengths)
