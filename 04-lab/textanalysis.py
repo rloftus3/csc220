@@ -15,20 +15,20 @@ if dataSize < 100:
     print(f"<p>Hey, Dude, that's too small a paragraph. Try again with something longer.</p>")
     exit()
 
+print("Hello!")
 # Calculate average length of string
 avg = mean(strings)
 print(f"<p>The average length of each string is: {avg}</p>")
 
 # Sort into lexographical order...
-strings.sorted()
+# Sorted in place, thus no need for variable assignment
+sorted(strings)
 itr = dataSize / 10
 
 # ...and print into 10x10 grid
-print("<p>")
 for i in range(itr):
     start = i * 10
-    print(strings[start:start + 10])
-print("</p>")
+    print(f"<p> {strings[start:start + 10]} </p>")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
