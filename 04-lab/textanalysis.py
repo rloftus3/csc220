@@ -17,7 +17,8 @@ if dataSize < 100:
 
 print("Hello!")
 # Calculate average length of string
-avg = mean(strings)
+# avg = mean(strings)
+avg = 3
 print(f"<p>The average length of each string is: {avg}</p>")
 
 # Sort into lexographical order...
