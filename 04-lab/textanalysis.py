@@ -26,7 +26,7 @@ strings.sort()
 itr = dataSize // 10
 
 # ...and print into 10x10 grid
-for i in range(itr):
+for i in range(100):
     start = i * 10
     print(f"<p> {strings[start : start+10]} </p>")
 
