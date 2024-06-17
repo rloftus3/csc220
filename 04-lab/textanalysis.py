@@ -23,10 +23,9 @@ print(f"<p>The average length of each string is: {avg}</p>")
 # Sort into lexographical order...
 # Sorted in place, thus no need for variable assignment
 strings.sort()
-itr = dataSize // 10
 
 # ...and print into 10x10 grid
-for i in range(100):
+for i in range(10):
     start = i * 10
     print(f"<p> {strings[start : start+10]} </p>")
 
