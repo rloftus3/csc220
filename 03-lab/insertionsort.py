@@ -1,34 +1,39 @@
 from random import randint
 
-# Generating 'n' lists with random sizes and variables
-list_quant = 2
-list_size = randint(1, 10)
-list_value = randint(1, 9)
-
-for i in range(list_quant):
-    
+# Generating a list with random size and variables
+def randList(size, min, max):
+    return list(randint(min, max) for i in range(size))    
 
 # Insertion sort in Python
-def insertionSort(array):
+def insertionSort(thelist):
+    listVisits = 0
+    for i in range(1,len(thelist)):
+        value = thelist[i]
+        j = i - 1
+        while j >= 0:
+            if value < thelist[j]:
+                lessThan = True
+            else:
+                lessThan = False
+            listVisits += 1
+            if lessThan == True:
+                thelist[j + 1] = thelist[j]
+                thelist[j] = value
+                j = j - 1
+            else:
+                break
+    return listVisits
 
-    for step in range(1, len(array)):
-        key = array[step]
-        j = step - 1
-        
-        # Compare key with each element on the left of it until an element smaller than it is found
-        # For descending order, change key<array[j] to key>array[j].        
-        while j >= 0 and key < array[j]:
-            array[j + 1] = array[j]
-            j = j - 1
-        
-        # Place key at after the element just smaller than it.
-        array[j + 1] = key
+# Testing insertion sort
+# data = [9, 5, 1, 4, 3]
+# insertionSort(data)
 
+for i in range(300):
+    size = randint(1000, 5000)
+    thelist = randList(size, 0, 99)
+    listVisits = insertionSort(thelist)
+    print(f"{size}, {listVisits}")
 
-data = [9, 5, 1, 4, 3]
-insertionSort(data)
-print('Sorted Array in Ascending Order:')
-print(data)
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
