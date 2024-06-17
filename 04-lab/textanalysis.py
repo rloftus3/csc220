@@ -1,7 +1,5 @@
 #!/usr/local/bin/python3
-import sys
 from statistics import mean
-sys.path.append('/home/staff/kurban/python')
 import csc220
 csc220.showForm("This is the comment on the form area.")  
 data = csc220.getInput('textarea')
@@ -13,23 +11,24 @@ dataSize = len(strings)
 print(f"<p>The number of words in this input is: {dataSize}</p>")
 if dataSize < 100:
     print(f"<p>Hey, Dude, that's too small a paragraph. Try again with something longer.</p>")
-    exit()
+    # exit()
 
 print("Hello!")
-# Calculate average length of string
-# avg = mean(strings)
-avg = 3
+# Calculate average length of string via list comprehension
+wordLengths = [len(s) for s in strings]
+avg = mean(wordLengths)
+
 print(f"<p>The average length of each string is: {avg}</p>")
 
 # Sort into lexographical order...
 # Sorted in place, thus no need for variable assignment
 sorted(strings)
-itr = dataSize / 10
+itr = dataSize // 10
 
 # ...and print into 10x10 grid
 for i in range(itr):
     start = i * 10
-    print(f"<p> {strings[start:start + 10]} </p>")
+    print(f"<p> {strings[start : start+10]} </p>")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
