@@ -66,7 +66,7 @@ board = list(dataMap)
 lastCell = len(board) - 1
 
 # Playing the game
-print(board)
+print(f"Board: {board}")
 if canWin(0):
     print(f"Winning path: {winningPath}")
 else:
