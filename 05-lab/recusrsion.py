@@ -11,33 +11,28 @@ board = []
 # Functions return Boolean values to check if path leads to a win
 def win(pos):
     global lastCell
-    print(f"Enter {win(pos)}")
     return pos == lastCell
 
 def tooHigh(pos): 
     global lastCell
-    print(f"Enter {tooHigh(pos)}")
     return pos > lastCell
 
 def tooLow(pos):
-    print(f"Enter {tooLow(pos)}")
     return pos < 0
 
 def valZero(pos):
     global board
-    print(f"Enter {valZero(pos)}")
-    return board[pos] != 0 # Need function to return False to indicate win is impossible
+    return board[pos] == 0 
 
 def alreadyVisited(pos):
     global visits
     return pos in visits
 
 def canWin(pos):
-    print(f"Enter {canWin(pos)}")
-    rv = True
     global board
-    global winningPath
     global visits
+    global winningPath
+    rv = True
 
     if win(pos):
         winningPath.append(pos)
@@ -52,12 +47,11 @@ def canWin(pos):
         rv = False
     visits.append(pos)
     if rv:
-        winningPath.append(pos) 
         if canWin(pos - board[pos]) or canWin(pos + board[pos]):
             rv = True
+            winningPath.append(pos)
         else:
             rv = False
-    print(f"Exit {canWin(pos)}")
     return rv
     
 # Turning space-separated input into list of integers
@@ -67,7 +61,9 @@ lastCell = len(board) - 1
 
 # Playing the game
 print(f"Board: {board}")
+print()
 if canWin(0):
+    winningPath.reverse()
     print(f"Winning path: {winningPath}")
 else:
     print(f"No winning path.")

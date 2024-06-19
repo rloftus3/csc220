@@ -39,7 +39,7 @@ def showForm(comment='Sample Comment', method='POST'):
     print("<div class='w3-container w3-cell w3-blue-grey w3-card-4' >")
 
     today = date.today()
-    print("<p>CSC220 form version {}.  Run on {}.  Note that there is NO PROTECTION from HTML Injections</p>".format( _version, today ))
+    print("<p>CSC220 form version {}.  Run on {}. </p>".format( _version, today ))
     print("<p>{}</p>".format( comment )) 
     print("</div>")
     
