@@ -14,6 +14,7 @@ def dump(parts):
 def replaceVar(val):
     if val[0] in "qwertyuiopasdfghjklzxcvbnm":
         if val not in varTable:
+            print(f"ERROR: val '{val}' not in varTable.")
             raise UserWarning(f"ERROR: val '{val}' not in varTable.")
         val = varTable[val]
     return str(val)

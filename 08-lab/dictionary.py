@@ -19,10 +19,12 @@ def assign(args):
         dictionary[key] = val
     elif val[0] in "qwertyuiopasdfghjklzxcvbnm":
         if val not in dictionary:
+            print(f"ERROR: {' '.join(args)}")
             raise UserWarning(f"ERROR: {' '.join(args)}")
         val = dictionary[val]
         dictionary[key] = val
     else:
+        print(f"ERROR: {' '.join(args)}")
         raise UserWarning(f"ERROR: {' '.join(args)}")
 
 data = csc220.getInput('textarea')
@@ -44,6 +46,7 @@ for line in lines:
     elif count == 3:
         func = command[parts[1]]
     else:
+        print(f"ERROR: {line}")
         raise UserWarning(f"ERROR: {line}")
 
     print(f"DEBUG: <{func} {parts}>")
