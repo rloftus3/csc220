@@ -46,7 +46,7 @@ for line in lines:
     else:
         raise UserWarning(f"ERROR: {line}")
 
-    print(f"<{func} {parts}>")
+    print(f"DEBUG: <{func} {parts}>")
     func(parts)
 print("</pre>")
  
