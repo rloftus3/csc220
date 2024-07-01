@@ -1,5 +1,5 @@
 export REPO = csc220
-SUBDIRS = 00-lab 01-lab 02-lab 04-lab 05-lab 08-lab
+SUBDIRS = 00-lab 01-lab 02-lab 04-lab 05-lab 08-lab 10-lab
 
 all: $(SUBDIRS)
 
