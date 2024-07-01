@@ -34,6 +34,7 @@ command = {
     "<-": assign
 }
 
+print("<pre>")
 for line in lines:
     parts = line.split()
     count = len(parts)
@@ -47,6 +48,7 @@ for line in lines:
 
     print(f"<{func} {parts}>")
     func(parts)
+print("</pre>")
  
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
