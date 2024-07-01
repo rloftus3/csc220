@@ -16,7 +16,7 @@ def replaceVar(val):
         if val not in varTable:
             raise UserWarning(f"ERROR: val '{val}' not in varTable.")
         val = varTable[val]
-    return val
+    return str(val)
 
 def assign(args):
     global varTable
@@ -24,7 +24,7 @@ def assign(args):
     rawExpr = args[2:]
     # pprint(rawExpr)
     filteredExpr = [ x for x in map(replaceVar, rawExpr) ]
-    # pprint(filteredExpr)
+    pprint(filteredExpr)
     etree = expressiontree.build_expression_tree(filteredExpr)
     val = etree.evaluate()
     varTable[key] = val

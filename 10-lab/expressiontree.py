@@ -117,13 +117,16 @@ def build_expression_tree(tokens):
     elif t not in '()':                         # consider t to be a literal
       S.append(ExpressionTree(t))               # push trivial tree storing value
     elif t == ')':       # compose a new tree from three constituent parts
-      right = S.pop()                           # right subtree as per LIFO
-      op = S.pop()                              # operator symbol
-      left = S.pop()                            # left subtree
-      S.append(ExpressionTree(op, left, right)) # repush tree
+      if len(S) > 1:
+        right = S.pop()                           # right subtree as per LIFO
+        op = S.pop()                              # operator symbol
+        left = S.pop()                            # left subtree
+        S.append(ExpressionTree(op, left, right)) # repush tree
     # we ignore a left parenthesis
   return S.pop()
 
 if __name__ == '__main__':
   big = build_expression_tree(tokenize('((((3+1)x3)/((9-5)+2))-((3x(7-4))+6))'))
   print(big, '=', big.evaluate())
+  simp = build_expression_tree( tokenize( '(100)' ) )
+  print( simp, '=', simp.evaluate() )
