@@ -11,10 +11,10 @@ def randList(size, min, max):
 # print(quicksort.listVisits)
 
 for i in range(300):
-    size = randint(1000, 5000)
-    thelist = randList(size, 0, 99)
-    listVisits = quicksort.inplace_quick_sort(thelist)
-    print(f"{size}, {listVisits}")
+    size = randint(10000, 20000)
+    thelist = randList(size, 0, 99999)
+    quicksort.inplace_quick_sort(thelist, 0, len(thelist) - 1)
+    print(f"{size}, {quicksort.listVisits}")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
