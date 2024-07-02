@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 import quicksort
 from random import randint
 
