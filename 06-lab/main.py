@@ -6,15 +6,17 @@ def randList(size, min, max):
     return list(randint(min, max) for i in range(size))
 
 # Testing quick sort
-# data = [2, 3, 4, 5, 7]
-# quicksort.inplace_quick_sort(data, 0, len(data) - 1)
-# print(quicksort.listVisits)
+# data = [10, 1, 5, 2, 3, 13, 12]
+# listVisits = quicksort.inplace_quick_sort(data, 0, len(data) - 1)
+# print(data)
+# print()
+# print(listVisits)
 
 for i in range(300):
     size = randint(10000, 20000)
     thelist = randList(size, 0, 99999)
-    quicksort.inplace_quick_sort(thelist, 0, len(thelist) - 1)
-    print(f"{size}, {quicksort.listVisits}")
+    listVisits = quicksort.inplace_quick_sort(thelist, 0, len(thelist) - 1)
+    print(f"{size}, {listVisits}")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.

@@ -19,12 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-listVisits = 0
-
 def inplace_quick_sort(S, a, b):
   """Sort the list from S[a] to S[b] inclusive using the quick-sort algorithm."""
-  global listVisits
-  if a >= b: return                                      # range is trivially sorted
+  listVisits = 0
+  if a >= b: return listVisits                                 # range is trivially sorted
 
   listVisits += 1
   pivot = S[b]                                           # last element of range is pivot
@@ -54,8 +52,10 @@ def inplace_quick_sort(S, a, b):
   listVisits += 4
   S[left], S[b] = S[b], S[left]
   # make recursive calls
-  inplace_quick_sort(S, a, left - 1)
-  inplace_quick_sort(S, left + 1, b)
+  listVisits += inplace_quick_sort(S, a, left - 1)
+  listVisits += inplace_quick_sort(S, left + 1, b)
+
+  return listVisits
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
