@@ -34,13 +34,12 @@ while len(pq) > 1:
 
 # build table structure for output
 table = [["Character", "Frequency", "Possible Huffman Code"]]
-for ch in huffman:
+for char in huffman:
     table.append([ch, freqs[ch], huffman[ch]])
 html_table = tabulate(table, headers = "firstrow", tablefmt = "html")
 
 # print html table output
 print(f"<div> {html_table} </div>")
-print("</body> </html>")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.

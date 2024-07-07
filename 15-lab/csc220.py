@@ -31,7 +31,11 @@ def showForm(comment='Sample Comment', method='POST'):
     global _formInfo
     global _version
     if not _isItWeb:
-        _formInfo['textarea'] = input("Enter the textarea:")
+        # _formInfo['textarea'] = input("Enter the textarea:")
+        _formInfo['textarea'] = '''
+abear thebear
+bigbear
+manamana doodoodoodoodoo'''
         # _formInfo['textbox'] = input("Enter the textbox:")
         return
     print("<div class='w3-container w3-cell-middle w3-cell-row' >")
@@ -82,7 +86,6 @@ if 'REQUEST_METHOD' in os.environ:
     print("Content-type: text/html\n\n")
     print("<html><head>")
     print('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">')
-    print('<link rel="stylesheet" href="table.css">')
     print("</head><body>")
     #_w3css_panel("Request Method is {}".format( request_method ))
     if request_method == "GET":
@@ -100,7 +103,3 @@ if 'REQUEST_METHOD' in os.environ:
 
 else:
     print("csc220 module is loaded.")
-
-
-
-
