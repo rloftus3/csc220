@@ -34,7 +34,7 @@ while len(pq) > 1:
 
 # build table structure for output
 table = [["Character", "Frequency", "Possible Huffman Code"]]
-for char in huffman:
+for ch in huffman:
     table.append([ch, freqs[ch], huffman[ch]])
 html_table = tabulate(table, headers = "firstrow", tablefmt = "html")
 
