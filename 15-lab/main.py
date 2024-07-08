@@ -10,24 +10,21 @@ myMap = avl_tree.AVLTreeMap()
 # filename = "/home/staff/kurban/public/lists/web2.txt"
 filename = "web2.txt"
 with open(filename, "r") as dictFile:
-    lines = data.split('\n')
-    for line in lines:
-        word = line.strip()
-        myMap[word] = None
-
+    for line in dictFile:
+        word = line.strip().lower()
+        if len(word) > 0:
+            myMap[word] = None
 
 misspelledWords = []
-keys = [ k for k in myMap.keys() ]
 lines = data.split("\n")
 for line in lines:
-    # pprint.pprint(line)
     words = line.split()
     for word in words:
-        pprint.pprint(word)
-        if word not in keys:
+        word = word.lower()
+        if word not in myMap:
             misspelledWords.append(word)
     
-print(misspelledWords)
+print(f"Misspelled Words: {misspelledWords}")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.

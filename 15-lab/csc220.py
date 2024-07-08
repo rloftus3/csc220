@@ -32,8 +32,7 @@ def showForm(comment='Sample Comment', method='POST'):
     global _version
     if not _isItWeb:
         # _formInfo['textarea'] = input("Enter the textarea:")
-        _formInfo['textarea'] = '''
-abear thebear
+        _formInfo['textarea'] = '''abear thebear
 bigbear
 manamana doodoodoodoodoo'''
         # _formInfo['textbox'] = input("Enter the textbox:")
