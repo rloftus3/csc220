@@ -7,8 +7,7 @@ data = csc220.getInput('textarea')
 
 myMap = avl_tree.AVLTreeMap()
 
-# filename = "/home/staff/kurban/public/lists/web2.txt"
-filename = "web2.txt"
+filename = "/home/staff/kurban/public/lists/web2.txt"
 with open(filename, "r") as dictFile:
     for line in dictFile:
         word = line.strip().lower()
