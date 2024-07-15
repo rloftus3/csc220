@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 import csc220
 from kmp import *
-# csc220.showForm("This is the comment on the form area.")  
+csc220.showForm("This is the comment on the form area.")  
 haystack = csc220.getInput('textarea')
 needle = csc220.getInput('textbox')
 
