@@ -8,9 +8,9 @@ needle = csc220.getInput('textbox')
 pos = KMPmatch(needle, haystack)
 
 if pos >= 0:
-    print(f"The position of the first character of '{needle}' is: {pos}.")
+    print(f"The position of the first character of <{needle}> is: {pos}.")
 else:
-    print(f"'{needle}' is not contained within your input.")
+    print(f"<{needle}> is not contained within your input.")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
