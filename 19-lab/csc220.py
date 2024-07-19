@@ -81,6 +81,7 @@ if 'REQUEST_METHOD' in os.environ:
     print("Content-type: text/html\n\n")
     print("<html><head>")
     print('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">')
+    print('<link rel="stylesheet" href="table.css">')
     print("</head><body>")
     #_w3css_panel("Request Method is {}".format( request_method ))
     if request_method == "GET":
