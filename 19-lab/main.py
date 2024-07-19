@@ -30,7 +30,8 @@ for eName in eNames:
     try:
         v1 = verts[parts[0]]
         v2 = verts[parts[1]]
-    except KeyError: 
+    except KeyError as e:
+        print(f"Invalid endpoint: {e}.") 
         continue
     else:
         g.insert_edge(v1, v2)
