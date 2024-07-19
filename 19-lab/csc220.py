@@ -32,13 +32,15 @@ def showForm(comment='Sample Comment', method='POST'):
     if not _isItWeb:
         # _formInfo['textarea'] = input("Enter the textarea:")
         # _formInfo['textbox'] = input("Enter the textbox:")
-        _formInfo['textarea'] = '''vertex1
-vertex2
-vertex3
-vertexn
+        _formInfo['textarea'] = '''one
+two
+three
+four
+three
 #end
-vertex1, vertex2
-vertex2, vertex3'''
+one, two
+two, three
+one, four'''
         return
     print("<div class='w3-container w3-cell-middle w3-cell-row' >")
 
