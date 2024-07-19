@@ -23,7 +23,9 @@ for line in lines:
 verts = {}
 for vName in vNames:
     if vName in verts:
-        raise UserWarning(f"Duplicate vertex name: {vName}.")
+        error = f"Duplicate vertex name: {vName}."
+        print(f"<pre> {error} </pre>")
+        raise UserWarning(error)
     verts[vName] = g.insert_vertex(vName)
 for eName in eNames:
     parts = eName.split(', ')
