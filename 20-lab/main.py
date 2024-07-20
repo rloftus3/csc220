@@ -61,7 +61,7 @@ for v in g.vertices():
         cycle_found = dfs.DFS_cycle(g, v, in_progress, finished)
     if cycle_found:
         break
-if g.vertex_count() > 1:
+if g.vertex_count() > 0:
     if cycle_found:
         message = "This graph is cyclic!"
     else:
