@@ -2,6 +2,7 @@
 import csc220
 import graph
 import dfs
+from tabulate import tabulate
 csc220.showForm("<br/>")
 
 # get data
@@ -39,10 +40,16 @@ for eName in eNames:
     else:
         g.insert_edge(v1, v2)
 
-# for v in g.vertices():
-    # edges = []
-    # for e in g.incident_edges(v, outgoing=True):
-        # edges.append(e.opposite(v).element())
+# build table structure for output
+table = [["Vertex", "Outgoing Edges"]]
+for v in g.vertices():
+    edges = []
+    for e in g.incident_edges(v, outgoing=True):
+        edges.append(e.opposite(v).element())
+    table.append([v.element(), "<br/>".join(edges)])
+html_table = tabulate(table, headers = "firstrow", tablefmt = "unsafehtml")
+# print html table output
+print(f"<div> {html_table} </div>")
 
 in_progress = []
 finished = []
@@ -54,12 +61,12 @@ for v in g.vertices():
         cycle_found = dfs.DFS_cycle(g, v, in_progress, finished)
     if cycle_found:
         break
-
-if cycle_found:
-    message = "This graph is cyclic!"
-else:
-    message = "This graph is acyclic!"
-print(message)
+if g.vertex_count() > 1:
+    if cycle_found:
+        message = "This graph is cyclic!"
+    else:
+        message = "This graph is acyclic!"
+    print(f"<div> {message} </div>")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
