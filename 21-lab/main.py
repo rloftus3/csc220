@@ -24,9 +24,7 @@ for line in lines:
 verts = {}
 for vName in vNames:
     if vName in verts:
-        error = f"Duplicate vertex name: {vName}."
-        print(f"<pre> {error} </pre>")
-        raise UserWarning(error)
+        continue
     verts[vName] = g.insert_vertex(vName)
 for eName in eNames:
     parts = eName.split(', ')
@@ -34,7 +32,7 @@ for eName in eNames:
         v1 = verts[parts[0]]
         v2 = verts[parts[1]]
     except KeyError as e:
-        print(f"Invalid endpoint: {e}.") 
+        # print(f"Invalid endpoint: {e}.") 
         continue
     else:
         g.insert_edge(v1, v2)
@@ -52,7 +50,7 @@ html_table = tabulate(table, headers = "firstrow", tablefmt = "unsafehtml")
 # print html table output
 print(f"<div> {html_table} </div>")
 
-
+# IMPLEMENT BFS CODE HERE
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.

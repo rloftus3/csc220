@@ -4,6 +4,7 @@ import graph
 from tabulate import tabulate
 csc220.showForm("<br/>")
 
+# get data
 data = csc220.getInput('textarea')
 lines = data.split('\n')
 g = graph.Graph(True)
@@ -11,6 +12,7 @@ vNames = []
 eNames = []
 foundEdges = False
 
+# process data; split into verts, edges, and weights
 for line in lines:
     if line == "#end":
         foundEdges = True
@@ -20,12 +22,11 @@ for line in lines:
     else:
         vNames.append(line)
 
+# building graph
 verts = {}
 for vName in vNames:
     if vName in verts:
-        error = f"Duplicate vertex name: {vName}."
-        print(f"<pre> {error} </pre>")
-        raise UserWarning(error)
+        continue
     verts[vName] = g.insert_vertex(vName)
 for eName in eNames:
     parts = eName.split(', ')
@@ -33,14 +34,13 @@ for eName in eNames:
         v1 = verts[parts[0]]
         v2 = verts[parts[1]]
     except KeyError as e:
-        print(f"Invalid endpoint: {e}.") 
+        # print(f"Invalid endpoint: {e}.") 
         continue
     else:
         g.insert_edge(v1, v2)
 
 # build table structure for output
 table = [["Vertex", "Outgoing Edges"]]
-
 for v in g.vertices():
     edges = []
     for e in g.incident_edges(v, outgoing=True):

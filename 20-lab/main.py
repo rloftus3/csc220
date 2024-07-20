@@ -14,9 +14,12 @@ eNames = []
 foundEdges = False
 
 # process data; split in verts and edges
-for line in lines:
+for raw_line in lines:
+    line = raw_line.strip()
     if line == "#end":
         foundEdges = True
+        continue
+    if len(line) < 1:
         continue
     if foundEdges:
         eNames.append(line)
@@ -61,12 +64,13 @@ for v in g.vertices():
         cycle_found = dfs.DFS_cycle(g, v, in_progress, finished)
     if cycle_found:
         break
-if g.vertex_count() > 0:
-    if cycle_found:
-        message = "This graph is cyclic!"
-    else:
-        message = "This graph is acyclic!"
-    print(f"<div> {message} </div>")
+if g.vertex_count() < 1:
+    message = "Enter a graph description in the textarea."
+elif cycle_found:
+    message = "This graph is cyclic."
+else:
+    message = "This graph is acyclic."
+print(f"<div> {message} </div>")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
