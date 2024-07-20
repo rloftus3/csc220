@@ -66,3 +66,27 @@ def DFS_complete(g):
       forest[u] = None             # u will be the root of a tree
       DFS(g, u, forest)
   return forest
+
+def DFS_cycle(G, u, in_progress, finished):
+  uName = u.element()
+  in_progress.append(uName)
+  cycle_found = False
+
+  for e in G.incident_edges(u, outgoing = True):
+    v = e.opposite(u)
+    vName = v.element()
+    # print(f"v: {v}\n in progress: {in_progress}")
+    if vName in in_progress:
+      # print("cycle found!")
+      cycle_found = True
+      break
+    elif vName in finished:
+      return
+    else:
+      cycle_found = DFS_cycle(G, v, in_progress, finished)
+      if cycle_found:
+        break
+  
+  finished.append(uName)
+  in_progress.remove(uName)
+  return cycle_found
