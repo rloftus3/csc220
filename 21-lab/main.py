@@ -62,7 +62,7 @@ for i in range(len(levels)):
     if 'END' in labels:
         num_hops = i
         break
-print(f"Num hops: '{num_hops}'")
+# print(f"Num hops: '{num_hops}'")
 parent = 'END'
 message = parent
 if num_hops < 0:
@@ -70,7 +70,7 @@ if num_hops < 0:
 else:
     for i in range(num_hops, 0, -1):
         parent = levels[i][parent]
-        message = f"{parent} &rarr {message}"
+        message = f"{parent} &rarr; {message}"
     message = f"Shortest path is: {message}"
 print(f"<div> {message} </div>")
 
