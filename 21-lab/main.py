@@ -62,7 +62,7 @@ for i in range(len(levels)):
     if 'END' in labels:
         num_hops = i
         break
-# print(f"Num hops: '{num_hops}'")
+print(f"<div> Hop Count: '{num_hops}' </div>")
 parent = 'END'
 message = parent
 if num_hops < 0:
