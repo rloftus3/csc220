@@ -39,6 +39,25 @@ def BFS(g, s, discovered):
           next_level.append(v)       # v will be further considered in next pass
     level = next_level               # relabel 'next' level to become current
 
+def BFS_v2(g, s):
+  levels = [ {s.element():None} ]
+  level = [s]
+  discovered = [s]
+
+  while len(level) > 0:
+    children = {}
+    next_level = []
+    for u in level:
+      for e in g.incident_edges(u):
+        v = e.opposite(u)
+        if v not in discovered:
+          discovered.append(v)
+          next_level.append(v)
+          children[v.element()] = u.element()
+    level = next_level
+    levels.append(children)
+  return levels
+
 def BFS_complete(g):
   """Perform BFS for entire graph and return forest as a dictionary.
 

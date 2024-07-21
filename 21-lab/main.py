@@ -5,6 +5,7 @@ import bfs
 from tabulate import tabulate
 csc220.showForm("<br/>")
 
+# get data
 data = csc220.getInput('textarea')
 lines = data.split('\n')
 g = graph.Graph(True)
@@ -12,15 +13,20 @@ vNames = []
 eNames = []
 foundEdges = False
 
-for line in lines:
+# process data; split in verts and edges
+for raw_line in lines:
+    line = raw_line.strip()
     if line == "#end":
         foundEdges = True
+        continue
+    if len(line) < 1:
         continue
     if foundEdges:
         eNames.append(line)
     else:
         vNames.append(line)
 
+# building graph
 verts = {}
 for vName in vNames:
     if vName in verts:
@@ -39,18 +45,34 @@ for eName in eNames:
 
 # build table structure for output
 table = [["Vertex", "Outgoing Edges"]]
-
 for v in g.vertices():
     edges = []
     for e in g.incident_edges(v, outgoing=True):
         edges.append(e.opposite(v).element())
     table.append([v.element(), "<br/>".join(edges)])
 html_table = tabulate(table, headers = "firstrow", tablefmt = "unsafehtml")
-
 # print html table output
 print(f"<div> {html_table} </div>")
 
-# IMPLEMENT BFS CODE HERE
+# find shortest path
+levels = bfs.BFS_v2(g, verts['START'])
+num_hops = -1
+for i in range(len(levels)):
+    labels = levels[i].keys()
+    if 'END' in labels:
+        num_hops = i
+        break
+print(f"Num hops: '{num_hops}'")
+parent = 'END'
+message = parent
+if num_hops < 0:
+    message = "No path."
+else:
+    for i in range(num_hops, 0, -1):
+        parent = levels[i][parent]
+        message = f"{parent} &rarr {message}"
+    message = f"Shortest path is: {message}"
+print(f"<div> {message} </div>")
 
 # I honor Parkland's core values by affirming that I have 
 # followed all academic integrity guidelines for this work.
