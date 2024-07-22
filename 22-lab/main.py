@@ -66,7 +66,7 @@ for v in g.vertices():
 html_table = tabulate(table, headers = "firstrow", tablefmt = "html")
 
 # print html table output
-# print(f"<div> <h2>Your Graph</h2> {html_table} </div>")
+print(f"<div> <h2>Your Graph</h2> {html_table} </div>")
 
 # run dijkstra to find all shortest paths from v_start and associated weights
 distanceMap = shortest_paths.shortest_path_lengths(g, verts[v_start])
