@@ -37,7 +37,6 @@ for raw_line in lines:
 
 # building graph
 verts = {}
-# edges = {}
 for vName in vNames:
     if vName in verts:
         continue
@@ -49,11 +48,9 @@ for eName in eNames:
         child = verts[parts[1]]
         weight = float(parts[2])
     except KeyError as e:
-        # print(f"Invalid endpoint: {e}.") 
         continue
     else:
         g.insert_edge(parent, child, weight)
-        # edges[f"{parent}, {child}"] = weight
 
 # build table structure for output
 table = [["Parent", "Child", "Weight"]]
@@ -90,6 +87,7 @@ martin_short_est_path = []
 while notDone:
     try:
         martin_short_est_path.append(paths[parent])
+        paths.pop(parent)
     except KeyError:
         notDone = False
     else:
