@@ -105,7 +105,7 @@ if pathFound:
     for i in range(len(martin_short_est_path) - 1, -1, -1):
         parent, child, weight = martin_short_est_path[i]
         table2.append([f"{parent} &rarr; {child}",  weight])
-    html_table2 = tabulate(table2, headers = "firstrow", tablefmt = "html")
+    html_table2 = tabulate(table2, headers = "firstrow", tablefmt = "unsafehtml")
     # print html table output
     print(f"<div> <h2>Shortest Path</h2> {html_table2} </div>")
     print(f"<div> <b>Total Weight: {cost}</b> </div>")
