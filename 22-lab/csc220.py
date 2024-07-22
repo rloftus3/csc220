@@ -31,14 +31,14 @@ def showForm(comment='Sample Comment', method='POST'):
     global _version
     if not _isItWeb:
         _formInfo['textarea'] = input("Enter the textarea:")
-        # _formInfo['textbox'] = input("Enter the textbox:")
+        _formInfo['textbox'] = input("Enter the textbox:")
         return
     print("<div class='w3-container w3-cell-middle w3-cell-row' >")
 
     print("<div class='w3-container w3-cell w3-blue-grey w3-card-4' >")
 
     today = date.today()
-    print("<p>CSC220 form version {}.  Run on {}.  Note that there is NO PROTECTION from HTML Injections</p>".format( _version, today ))
+    print("<p>CSC220 form version {}.  Run on {}.  EXTRA: In the textbox, enter two vertices e.g. 'vertex1, vertex2' to find the shortest path between them. You gotta do this to test START and END too.</p>".format( _version, today ))
     print("<p>{}</p>".format( comment )) 
     print("</div>")
 
