@@ -31,7 +31,8 @@ def showForm(comment='Sample Comment', method='POST'):
     global _version
     if not _isItWeb:
         _formInfo['textarea'] = input("Enter the textarea:")
-        # _formInfo['textbox'] = input("Enter the textbox:")
+        _formInfo['textbox'] = input("Enter the textbox:")
+
         return
     print("<div class='w3-container w3-cell-middle w3-cell-row' >")
 
