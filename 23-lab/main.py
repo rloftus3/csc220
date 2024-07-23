@@ -11,7 +11,7 @@ def MST_print(tree, message):
     for e in tree:
         table.append([e])
         counter = counter + e.element()
-    html_table = tabulate(table, headers = "firstrow", tablefmt = "unsafehtml")
+    html_table = tabulate(table, headers = "firstrow", tablefmt = "html")
     # print html table output
     print(f"<div> <h2>{message}</h2> {html_table} </div>")
     print(f"<div> <b>Total Weight: {counter}</b> </div>")
